@@ -1,0 +1,52 @@
+.tableContainer {
+  display: block;
+  height: 300px;
+  overflow: auto;
+  border-bottom: 1px solid grey;
+  margin-bottom: 4px;
+}
+
+.tableRow {
+  cursor: pointer;
+}
+
+.selectedRow {
+  background-color: lightgray;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paginationContainer {
+  display: flex;
+  width: 100%;
+  max-width: calc(100% - 300px);
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  & > p {
+    cursor: pointer;
+    display: flex;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  & > div {
+    cursor: pointer;
+  }
+}
+
+.pageSizeLabel {
+  display: flex;
+  gap: 8px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+}
