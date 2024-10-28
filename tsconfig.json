@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "es2020"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,9 +19,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "types": ["node"],
+    "outDir": "dist"
   },
+  "ts-node": {
+        // Tell ts-node CLI to install the --loader automatically
+        "esm": true
+    },
   "include": [
-    "src"
-  ]
+    "src" ]
 }
