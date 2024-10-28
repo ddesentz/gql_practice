@@ -41,7 +41,7 @@ const ContactTableComponent: React.FunctionComponent<IContactTable> = ({
     const firstPageIndex = (currentPage - 1) * pageSize;
     const lastPageIndex = firstPageIndex + pageSize;
     return data.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, pageSize]);
+  }, [currentPage, pageSize, data]);
 
   const handlePageSizeChange = (e: any) => {
     setPageSize(e.target.value);
@@ -61,7 +61,6 @@ const ContactTableComponent: React.FunctionComponent<IContactTable> = ({
   };
 
   const handleSelectContact = (contact: any) => {
-    console.log(contact);
     selectContact(contact);
   };
 

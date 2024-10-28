@@ -15,6 +15,10 @@ const typeDefs = `#graphql
     contacts: [Contact]
     contact(id: ID!): Contact
   }
+
+  type Mutation {
+    updateContact(id: ID!, firstName: String, lastName: String, email: String, phoneNumber: String): Contact
+  }
 `;
 
 const resolvers = {
@@ -22,6 +26,23 @@ const resolvers = {
     contacts: () => contacts,
     contact: (_: any, { id }: { id: number }) => {
       return contacts.find((contact) => Number(contact.id) === Number(id));
+    },
+  },
+  Mutation: {
+    updateContact: (
+      _: any,
+      { id, firstName, lastName, email, phoneNumber }: any
+    ) => {
+      const contact = contacts.find(
+        (contact) => Number(contact.id) === Number(id)
+      );
+      if (contact) {
+        contact.firstName = firstName || contact.firstName;
+        contact.lastName = lastName || contact.lastName;
+        contact.email = email || contact.email;
+        contact.phoneNumber = phoneNumber || contact.phoneNumber;
+      }
+      return contact;
     },
   },
 };
